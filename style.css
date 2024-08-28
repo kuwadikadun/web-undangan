@@ -187,7 +187,8 @@ body {
 }
 
 .story,
-.gallery {
+.gallery,
+.rsvp {
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
@@ -203,7 +204,8 @@ body {
 }
 
 .story p,
-.gallery p {
+.gallery p,
+.rsvp p {
   font-size: 1rem;
   font-weight: 300;
 }
@@ -307,6 +309,32 @@ body {
 
 .gallery {
   background-color: #f5f5f5;
+}
+
+.rsvp {
+  background-color: var(--bg);
+}
+
+.rsvp h2 {
+  font-size: 4.5rem;
+}
+
+.rsvp p,
+.rsvp form label {
+  color: white;
+}
+
+.rsvp button {
+  background-color: var(--red);
+  color: white;
+  border: 1px solid var(--red);
+  margin-top: 22px;
+}
+
+.rsvp button:hover {
+  background-color: white;
+  color: var(--red);
+  border: 1px solid white;
 }
 
 /* Media Query */
