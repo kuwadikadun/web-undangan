@@ -46,7 +46,7 @@
         <h1>Putra & Putri</h1>
         <p>Akan melangsungkan resepsi pernikahan:</p>
         <div class="simply-countdown"></div>
-        <a href="#undangan" class="btn btn-lg mt-4" onclick="enableScroll()"
+        <a href="#home" class="btn btn-lg mt-4" onclick="enableScroll()"
           >Lihat Undangan</a
         >
       </main>
@@ -575,6 +575,10 @@
 
     <script>
       const rootElement = document.querySelector(":root");
+      const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+      let isPlaying = false;
+      const song = document.querySelector('#song');
+      const audioIcon = document.querySelector('.audio-icon-wrapper i');
 
       function disableScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -590,12 +594,35 @@
       function enableScroll() {
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
-        localStorage.setItem("opened", "true");
+        // localStorage.setItem("opened", "true");
+        playAudio();
       }
 
-      if (!localStorage.getItem("opened")) {
-        disableScroll();
+      function playAudio() {
+        // song.volume = 0.1;
+        audioIconWrapper.style.display = 'flex';
+        song.play();
+        isPlaying = true;
       }
+
+      audioIconWrapper.onclick = function() {
+        if(isPlaying) {
+          song.pause();
+          audioIcon.classList.remove('bi-disc');
+          audioIcon.classList.add('bi-pause-circle');
+        } else {
+          song.play();
+          audioIcon.classList.remove('bi-pause-circle');
+          audioIcon.classList.add('bi-disc');
+        }
+
+        isPlaying = !isPlaying;
+      }
+
+      // if (!localStorage.getItem("opened")) {
+      //   disableScroll();
+      // }
+      disableScroll();
     </script>
 
     <script>
